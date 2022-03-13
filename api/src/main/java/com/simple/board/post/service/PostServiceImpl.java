@@ -33,4 +33,10 @@ public class PostServiceImpl implements PostService {
   public Post findById(Long id) {
     return postRepository.findById(id).orElseThrow();
   }
+
+  @Override
+  public Long deleteById(Long id) {
+    postRepository.deleteById(id);
+    return id;
+  }
 }

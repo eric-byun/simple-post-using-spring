@@ -34,4 +34,9 @@ public class PostController {
   public Post create(@RequestBody Post post) {
     return postService.create(post);
   }
+
+  @DeleteMapping("{id}")
+  public Long delete(@PathVariable Long id) {
+    return postService.deleteById(id);
+  }
 }

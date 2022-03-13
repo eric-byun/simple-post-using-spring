@@ -10,4 +10,5 @@ public interface PostService {
   Post create(Post post);
   Page<Post> findAll(int page);
   Post findById(Long id);
+  Long deleteById(Long id);
 }
