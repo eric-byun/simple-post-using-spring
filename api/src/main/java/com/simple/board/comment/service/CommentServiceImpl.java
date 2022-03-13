@@ -5,7 +5,7 @@ import com.simple.board.comment.repository.CommentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,9 +20,9 @@ public class CommentServiceImpl implements CommentService {
   }
 
   @Override
-  public Page<Comment> findAll(int page) {
-    PageRequest pageRequest = PageRequest.of(page-1, 10, Sort.by("id").descending());
-    return commentRepository.findAll(pageRequest);
+  public Page<Comment> findAll(Long postId, int page) {
+    Pageable pageRequest = PageRequest.of(page-1, 10);
+    return commentRepository.findAllWithParentComments(postId, pageRequest);
   }
 
   @Override

@@ -22,6 +22,9 @@ public class Comment {
   private Long parentId;
 
   @Column
+  private Long rId;
+
+  @Column
   private String writer;
 
   @DateTimeFormat

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public interface CommentService {
 
   Comment create(Comment post);
-  Page<Comment> findAll(int page);
+  Page<Comment> findAll(Long postId, int page);
   Comment findById(Long id);
   Long deleteById(Long id);
 }
