@@ -27,11 +27,11 @@ public class PostServiceImpl implements PostService {
     }
 
     if (searchType.equals("title")) {
-      return postRepository.findByTitleContaining(searchValue, pageRequest);
+      return postRepository.findPostsByTitleContaining(searchValue, pageRequest);
     }
 
     // writer
-    return postRepository.findByWriterContaining(searchValue, pageRequest);
+    return postRepository.findPostsByWriterContaining(searchValue, pageRequest);
   }
 
   @Override

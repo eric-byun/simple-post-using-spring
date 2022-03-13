@@ -11,16 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-  @Query(
-    value="select * from post where title like concat('%', ?1, '%') order by id desc",
-    nativeQuery = true
-  )
-  Page<Post> findByTitleContaining(String searchValue, PageRequest pageRequest);
-
-  @Query(
-    value="select * from post where writer like concat('%', ?1, '%') order by id desc",
-    nativeQuery = true
-  )
-  Page<Post> findByWriterContaining(String searchValue, PageRequest pageRequest);
+  Page<Post> findPostsByTitleContaining(String searchValue, Pageable pageRequest);
+  Page<Post> findPostsByWriterContaining(String searchValue, PageRequest pageRequest);
 
 }
