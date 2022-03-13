@@ -3,15 +3,10 @@ package com.simple.board.post.controller;
 import com.simple.board.post.entity.Post;
 import com.simple.board.post.service.PostService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.HashMap;
 
 @RestController()
 @RequestMapping("/.api/posts")
@@ -21,8 +16,12 @@ public class PostController {
   PostService postService;
 
   @GetMapping()
-  public Page<Post> findAll(@RequestParam int page) {
-    return postService.findAll(page);
+  public Page<Post> findAll(@RequestParam HashMap<String, String> filter) {
+    int page = Integer.parseInt(filter.get("page"));
+    String searchType = filter.get("type");
+    String searchValue = filter.get("value");
+
+    return postService.findAll(page, searchType, searchValue);
   }
 
   @GetMapping("/{id}")

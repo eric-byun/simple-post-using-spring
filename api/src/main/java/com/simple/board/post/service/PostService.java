@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public interface PostService {
 
   Post create(Post post);
-  Page<Post> findAll(int page);
+  Page<Post> findAll(int page, String searchType, String searchValue);
   Post findById(Long id);
   Long deleteById(Long id);
 }
