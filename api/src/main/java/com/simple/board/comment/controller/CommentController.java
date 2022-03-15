@@ -26,8 +26,8 @@ public class CommentController {
   }
 
   @PostMapping()
-  public Comment create(@PathVariable Long postId, @RequestBody Comment post) {
-    return commentService.create(post);
+  public Comment create(@PathVariable Long postId, @RequestBody Comment comment) {
+    return commentService.create(comment);
   }
 
   @DeleteMapping("/{id}")
