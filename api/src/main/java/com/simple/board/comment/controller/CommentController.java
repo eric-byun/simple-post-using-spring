@@ -1,5 +1,6 @@
 package com.simple.board.comment.controller;
 
+import com.simple.board.comment.dto.CommentDto;
 import com.simple.board.comment.entity.Comment;
 import com.simple.board.comment.service.CommentService;
 import lombok.AllArgsConstructor;
@@ -16,17 +17,17 @@ public class CommentController {
   CommentService commentService;
 
   @GetMapping()
-  public Page<Comment> findAll(@PathVariable Long postId, @RequestParam int page) {
+  public Page<CommentDto> findAll(@PathVariable Long postId, @RequestParam int page) {
     return commentService.findAll(postId, page);
   }
 
   @GetMapping("/{id}")
-  public Comment findById(@PathVariable Long postId, @PathVariable Long id) {
+  public CommentDto findById(@PathVariable Long postId, @PathVariable Long id) {
     return commentService.findById(id);
   }
 
   @PostMapping()
-  public Comment create(@PathVariable Long postId, @RequestBody Comment comment) {
+  public CommentDto create(@PathVariable Long postId, @RequestBody Comment comment) {
     return commentService.create(comment);
   }
 
