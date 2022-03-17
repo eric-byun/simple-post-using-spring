@@ -4,7 +4,6 @@ import com.simple.board.post.dto.PostDto;
 import com.simple.board.post.entity.Post;
 import com.simple.board.post.service.PostService;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,6 @@ import java.util.HashMap;
 @AllArgsConstructor
 public class PostController {
 
-  ModelMapper modelMapper;
   PostService postService;
 
   @GetMapping()

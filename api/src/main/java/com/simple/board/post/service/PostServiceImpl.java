@@ -5,27 +5,19 @@ import com.simple.board.post.entity.Post;
 import com.simple.board.post.repository.PostRepository;
 import com.simple.board.util.PasswordUtil;
 import lombok.AllArgsConstructor;
-import org.modelmapper.Converter;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.spi.MappingContext;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class PostServiceImpl implements PostService {
 
-  ModelMapper modelMapper;
   PostRepository postRepository;
 
   @Override
